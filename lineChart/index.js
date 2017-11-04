@@ -22,7 +22,12 @@ svg.append("g")
 svg.append("g")
     .call(d3.axisLeft(scaleY));
 
-
+var makeline = d3.line()
+    .x(function(d) {
+        return scaleX(d.age); })
+    .y(function(d) {
+        return scaleY(d.women);
+    });
 
 //import the data from the .csv file
 d3.csv('./incomeData.csv', function(dataIn){
@@ -55,6 +60,14 @@ d3.csv('./incomeData.csv', function(dataIn){
         .attr('cy',function(d){return scaleY(d.women)})
         .attr('r',5)
         .attr('fill','blue')
+
+    svg.append("path")
+        .datum(dataIn)
+        .attr("class", "line")
+        .attr("d", makeline)
+        .attr('fill','none')
+        .attr('stroke','green')
+        .attr('stroke-width',3);
 
 
 });
