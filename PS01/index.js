@@ -1,7 +1,7 @@
 var width = document.getElementById('svg1').clientWidth;
 var height = document.getElementById('svg1').clientHeight;
 
-var marginLeft = 600;
+var marginLeft = 800;
 var marginTop = -1600;
 
 var svg = d3.select('svg')
@@ -20,7 +20,7 @@ path = d3.geoPath()
 
 svg.append('text')
     .text('Hawaii Clean Energy Power Plants')
-    .attr('transform','translate(-200, 2300)')
+    .attr('transform','translate(-400, 2300)')
     .style('text-anchor','middle')
     .style("font-size",'36px')
 ;
