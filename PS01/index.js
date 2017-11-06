@@ -4,6 +4,13 @@ var height = document.getElementById('svg1').clientHeight;
 var marginLeft = 800;
 var marginTop = -1600;
 
+
+var solar;
+var wind;
+var geothermal;
+
+var clicked = true;
+
 var svg = d3.select('svg')
     .append('g')
     .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
@@ -18,12 +25,6 @@ var albersProjection = d3.geoAlbersUsa()  //tell it which projection to use
 path = d3.geoPath()
     .projection(albersProjection);        //tell it to use the projection that we just made to convert lat/long to pixels
 
-svg.append('text')
-    .text('Hawaii Clean Energy Power Plants')
-    .attr('transform','translate(-400, 2300)')
-    .style('text-anchor','middle')
-    .style("font-size",'36px')
-;
 
 
 
@@ -68,4 +69,5 @@ d3.json('./cb_2016_15_bg_500k.json', function(dataIn){
     });
 
 });
+
 
